@@ -7,7 +7,7 @@ class DockingStation
   end
 
   def release_bike
-    if @bike_array.empty?
+    if empty?
       fail 'No bikes available'
     else
       @bike_array.pop
@@ -15,7 +15,7 @@ class DockingStation
   end
 
   def dock(bike)
-    if @bike_array.size >= 20
+    if full?
       fail 'Station is full'
     else
     @bike_array.push(bike)
@@ -23,4 +23,15 @@ class DockingStation
     #push takes an argument as long as the method "dock" allows it to !
     end
   end
+
+#private
+
+  def empty?
+    @bike_array.empty?
+  end
+
+  def full?
+    @bike_array.size >= 20
+  end
+
 end
