@@ -31,4 +31,8 @@ it 'docking station has a default capacity' do
   expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
 end
 
+it "allows user to increase capacity" do
+  expect(subject).to respond_to(:capacity)
+end
+
 end

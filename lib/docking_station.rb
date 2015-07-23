@@ -6,8 +6,8 @@ DEFAULT_CAPACITY = 20
 
 
 
-# attr_accessor :capacity => gives us the function of both the reader and the writer
-attr_reader :capacity #=> it allows us to access method in irb and its called a getter method (or shortcut)
+attr_accessor :capacity #=> gives us the function of both the reader and the writer
+#attr_reader :capacity #=> it allows us to access method in irb and its called a getter method (or shortcut)
 # attr_writer :capacity => its equivelant of a setter method, we set value using it.
 
   #def capacity=(number) #=> setter
