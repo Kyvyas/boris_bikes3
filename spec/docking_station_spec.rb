@@ -27,6 +27,8 @@ end
     expect(bike).to be_working
   end
 
-
+it 'docking station has a default capacity' do
+  expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+end
 
 end

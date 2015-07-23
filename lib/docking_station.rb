@@ -2,8 +2,26 @@ require_relative 'bike'
 
 class DockingStation
 
+DEFAULT_CAPACITY = 20
+
+
+
+# attr_accessor :capacity => gives us the function of both the reader and the writer
+attr_reader :capacity #=> it allows us to access method in irb and its called a getter method (or shortcut)
+# attr_writer :capacity => its equivelant of a setter method, we set value using it.
+
+  #def capacity=(number) #=> setter
+  #  @capacity = number
+  #end
+  #
+  #def capacity #=> getter
+  #  @capacity
+  #end
+
+
   def initialize
     @bike_array = []
+    @capacity = DEFAULT_CAPACITY
   end
 
   def release_bike
@@ -24,14 +42,14 @@ class DockingStation
     end
   end
 
-#private
+private
 
   def empty?
     @bike_array.empty?
   end
 
   def full?
-    @bike_array.size >= 20
+    @bike_array.size >= DEFAULT_CAPACITY
   end
 
 end
