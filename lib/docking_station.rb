@@ -49,7 +49,7 @@ private
   end
 
   def full?
-    @bike_array.size >= DEFAULT_CAPACITY
+    @bike_array.size >= capacity
   end
 
 end
