@@ -1,6 +1,9 @@
 require 'docking_station'
 
 describe DockingStation do
+
+  let(:broken_bike) {double(:broken_bike, {:working? => false })}
+
   describe '#release_bike' do
     it 'raises error when there are no bikes available' do
       expect{subject.release_bike}.to raise_error 'No bikes available'
@@ -21,10 +24,10 @@ end
     expect(subject).to respond_to(:dock).with(1).argument
   end
 
-  it "releases working bike" do
-    bike = Bike.new
-    bike.report_broken
-    subject.dock(bike)
+  it "does not release broken bike" do
+    # bike = Bike.new
+    # bike.report_broken
+    subject.dock(broken_bike)
     expect{subject.release_bike}.to raise_error 'No bikes available'
   end
 
