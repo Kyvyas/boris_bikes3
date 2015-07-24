@@ -1,12 +1,19 @@
 require 'bike'
 
 describe Bike do
-  it "should check if bike is working" do
-    expect(subject).to respond_to :working?
-  end
+	it {is_expected.to respond_to :working?}
 
-it "if it is really working" do
-  bike = Bike.new
-  expect(bike).to be_working
-end
+	it { is_expected.to be_working}
+
+	# it 'checks if bike responds to report_broken' do
+	# 	expect(subject).to respond_to :report_broken
+	# end
+
+	it 'checks if bike is broken when reported broken' do
+		subject.report_broken
+		expect(subject).to be_broken
+	end
+
+
+
 end

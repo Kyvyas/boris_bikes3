@@ -4,19 +4,7 @@ class DockingStation
 
 DEFAULT_CAPACITY = 20
 
-
-
-attr_accessor :capacity #=> gives us the function of both the reader and the writer
-#attr_reader :capacity #=> it allows us to access method in irb and its called a getter method (or shortcut)
-# attr_writer :capacity => its equivelant of a setter method, we set value using it.
-
-  #def capacity=(number) #=> setter
-  #  @capacity = number
-  #end
-  #
-  #def capacity #=> getter
-  #  @capacity
-  #end
+attr_accessor :capacity 
 
 
   def initialize
@@ -25,11 +13,11 @@ attr_accessor :capacity #=> gives us the function of both the reader and the wri
   end
 
   def release_bike
-    if empty?
-      fail 'No bikes available'
-    else
-      @bike_array.pop
-    end
+    @current_working_bikes = @bike_array.select {|x| x.working?}
+    fail 'No bikes available' if @current_working_bikes.empty?
+    bike = current_working_bikes.pop
+    @bike_array.delete (bike)
+    bike
   end
 
   def dock(bike)
